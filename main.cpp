@@ -17,7 +17,7 @@ void test_avl()
     avl->insert(50);
     avl->insert(91);
     avl->insert(73);
-    avl->insert(5);   
+    avl->insert(5);
 
     ASSERT(avl->isBalanced() == true, "The avl is not working");
     ASSERT(avl->height() == 3, "The avl is not working");
@@ -41,7 +41,7 @@ void test_avl()
     ASSERT(result == avl->getPreOrder(), "The PreOrder iterator is not working");
     ASSERT(result == avl->getPreOrder(), "The PreOrder iterator is not working");
     ASSERT(result == avl->getPreOrder(), "The PreOrder iterator is not working");
-    
+
     result = "";
     ite = avl->begin(AVLIterator<int>::Type::PostOrder);
     while(ite != avl->end()) {
@@ -58,7 +58,7 @@ void test_avl()
     avl->remove(100);
     ASSERT(avl->height() == 2, "The avl is not working");
     ASSERT(avl->getPreOrder() == "27 11 5 16 73 50 91 ", "The avl is not working");
-    
+
     delete avl;
 }
 
@@ -76,7 +76,7 @@ void test_hash(){
     notas.insert(pair<string, float>("Ana", 19));
     notas.insert(pair<string, float>("Cesar", 13));
     notas.insert(pair<string, float>("Patricia", 17));
-    
+
     ASSERT(notas.getSize() == 12, "The hash table is not working");
     ASSERT(notas.find("Marcos") == true, "The hash table is not working");
     ASSERT(notas.find("Heider") == false, "The hash table is not working");
@@ -88,7 +88,7 @@ void test_hash(){
     string result = "";
     HashTable<string, float>::iterator iteh = notas.begin();
     while(iteh != notas.end()) {
-        result += std::to_string((*iteh).first) + " ";
+        result += ((*iteh).first) + " ";
         ++iteh;
     }
     ASSERT(result == "Nancy Jorge Maria Pedro Teofilo Cecilia Marcos Ricardo Dina Ana Cesar Patricia ", "The hash table is not working");
@@ -96,14 +96,14 @@ void test_hash(){
     ASSERT(result == "Nancy Jorge Maria Pedro Teofilo Cecilia Marcos Ricardo Dina Ana Cesar Patricia ", "The hash table is not working");
     /*---------------------------------------------------------------*/
 
-    ASSERT(notas.remove("Heider") == false, "The hash table is not working");     
-    ASSERT(notas.remove("Marcos") == true, "The hash table is not working");     
-    ASSERT(notas.find("Marcos") == false, "The hash table is not working");     
+    ASSERT(notas.remove("Heider") == false, "The hash table is not working");
+    ASSERT(notas.remove("Marcos") == true, "The hash table is not working");
+    ASSERT(notas.find("Marcos") == false, "The hash table is not working");
 }
 
 int main(int argc, char const *argv[])
 {
     test_hash();
-    test_avl();    
+    test_avl();
     return 0;
 }
